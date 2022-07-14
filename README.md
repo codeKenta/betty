@@ -1,7 +1,9 @@
 # next-sanity-starter
 
 
-## 
+# Install
+
+run `yarn setup` to install dependencies for both next and sanity
 
 ## Add fonts
 1. Add font files to _/public/fonts_ (recomended font format is .woff2)
