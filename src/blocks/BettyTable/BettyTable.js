@@ -73,11 +73,11 @@ function BettyTable(props) {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{fontWeight: 'bold'}}>Bettare</TableCell>
-            <TableCell sx={{fontWeight: 'bold'}} align="center">1-poängare</TableCell>
-            <TableCell sx={{fontWeight: 'bold'}} align="center">3-poängare</TableCell>
-            <TableCell sx={{fontWeight: 'bold'}} align="center">15-poäng</TableCell>
-            <TableCell sx={{fontWeight: 'bold'}} align="center">total</TableCell>
+            <TableCell sx={{fontWeight: 'bold'}} align="left">Bettare</TableCell>
+            <TableCell sx={{fontWeight: 'bold'}} align="left">1-poängare</TableCell>
+            <TableCell sx={{fontWeight: 'bold'}} align="left" >3-poängare</TableCell>
+            <TableCell sx={{fontWeight: 'bold'}} align="left">15-poäng</TableCell>
+            <TableCell sx={{fontWeight: 'bold'}} align="left">total</TableCell>
 
           </TableRow>
         </TableHead>
@@ -90,10 +90,10 @@ function BettyTable(props) {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.correctWinner}</TableCell>
-              <TableCell align="right">{row.correctWinnerAndResult}</TableCell>
-              <TableCell align="right">{row.correctFinale}</TableCell>
-              <TableCell align="right">{row.total}</TableCell>
+              <TableCell align="left">{row.correctWinner}</TableCell>
+              <TableCell align="left">{row.correctWinnerAndResult}</TableCell>
+              <TableCell align="left">{row.correctFinale}</TableCell>
+              <TableCell align="left">{row.total}</TableCell>
 
             </TableRow>
           ))}
