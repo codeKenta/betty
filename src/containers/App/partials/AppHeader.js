@@ -5,10 +5,8 @@ import PropTypes from 'prop-types'
 import useSize from '@react-hook/size'
 import { generateUtilityClasses } from '@mui/base'
 import { styled } from '@mui/system'
-import { AppBar, IconButton, Toolbar } from '@mui/material'
-import { useGlobalHandlers, useGlobalState, useI18n } from '~/context'
-import { Brand as BrandIcon, Close as CloseIcon, Menu as MenuIcon } from '~/components/icons'
-import RouterLink from '../../RouterLink'
+import { AppBar, } from '@mui/material'
+import { useGlobalState, } from '~/context'
 
 const BREAKPOINT_KEY = 'md'
 
@@ -49,19 +47,6 @@ const AppHeaderRoot = styled(AppBar, {
   },
 }))
 
-const AppHeaderBrandLink = styled(RouterLink, {
-  name: 'AppHeader',
-  slot: 'BrandLink',
-})({
-  position: 'absolute',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  color: 'inherit',
-  '& > svg': {
-    display: 'block',
-    width: 'auto',
-  },
-})
 
 const AppHeader = React.memo(function AppHeader(props) {
   const {
@@ -74,8 +59,6 @@ const AppHeader = React.memo(function AppHeader(props) {
     ...other
   } = props
 
-  const { onNavMenuToggle } = useGlobalHandlers()
-  const { t } = useI18n()
 
   const rootRef = React.useRef(null)
   const [, rootHeight] = useSize(rootRef)
@@ -137,26 +120,7 @@ const AppHeader = React.memo(function AppHeader(props) {
         }}
       />
 
-      <Toolbar>
-        <IconButton
-          onClick={onNavMenuToggle}
-          color="inherit" // Inherit color from `headerColor`.
-          edge="start"
-          size="small"
-          aria-haspopup="true"
-          aria-expanded={isNavMenuOpen}
-          aria-label={t(__translationGroup)`Toggle main menu`}
-        >
-          {isNavMenuOpen ? <CloseIcon /> : <MenuIcon />}
-        </IconButton>
 
-        <div className={classes.toolbarPushMobile} />
-        <div className={classes.toolbarPushDesktop} />
-
-        <AppHeaderBrandLink href="/" aria-label={t(__translationGroup)`Go to the homepage`}>
-          <BrandIcon />
-        </AppHeaderBrandLink>
-      </Toolbar>
     </AppHeaderRoot>
   )
 })
