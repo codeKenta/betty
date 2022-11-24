@@ -4,7 +4,6 @@ import { styled } from '@mui/system'
 import { SITE_FOOTER_ID, SITE_HEADER_ID, SITE_MAIN_ID } from '~/utils/constants'
 import { GlobalStateContext } from '~/context'
 import {
-  AppCookieBar,
   AppFooter,
   AppHeader,
   AppLoader,
@@ -52,12 +51,7 @@ function App(props) {
 
       {preview && <AppExitPreview />}
 
-      <GlobalStateContext.Consumer>
-        {({ isCookieBarOpen }) => {
-          // Will only fetch `AppCookieBar` chunk if user has not consented.
-          return isCookieBarOpen ? <AppCookieBar open /> : null
-        }}
-      </GlobalStateContext.Consumer>
+
     </AppRoot>
   )
 }
